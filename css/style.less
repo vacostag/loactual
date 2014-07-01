@@ -1,0 +1,109 @@
+@secondary-color: #fff;
+@bar:				#fffded;
+@main-blue:			#2b3990;
+.opacity(@amount) {
+	@percentage: @amount * 100;
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@percentage)";
+	        filter: alpha(opacity=@percentage);
+	  -moz-opacity: @amount;
+	-khtml-opacity: @amount;
+	       opacity: @amount;
+}
+
+.transition(@css:all, @time, @easing: ease-out){
+	-webkit-transition: @css @time @easing;
+	   -moz-transition: @css @time @easing;
+	    -ms-transition: @css @time @easing;
+	     -o-transition: @css @time @easing;
+		    transition: @css @time @easing;
+}
+
+@font-face {
+    font-family: 'avg';
+    src: url('../fonts/avgr65w-webfont.eot');
+    src: url('../fonts/avgr65w-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avgr65w-webfont.woff') format('woff'),
+         url('../fonts/avgr65w-webfont.ttf') format('truetype'),
+         url('../fonts/avgr65w-webfont.svg#avg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'avg46';
+    src: url('../fonts/avgr46w.eot');
+    src: url('../fonts/avgr46w.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avgr46w.woff') format('woff'),
+         url('../fonts/avgr46w.ttf') format('truetype'),
+         url('../fonts/avgr46w.svg#avg46') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'avg45';
+    src: url('../fonts/avgr45w.eot');
+    src: url('../fonts/avgr45w.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avgr45w.woff') format('woff'),
+         url('../fonts/avgr45w.ttf') format('truetype'),
+         url('../fonts/avgr45w.svg#avg45') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'haetten';
+    src: url('../fonts/hatten-webfont.eot');
+    src: url('../fonts/hatten-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/hatten-webfont.woff') format('woff'),
+         url('../fonts/hatten-webfont.ttf') format('truetype'),
+         url('../fonts/hatten-webfont.svg#haetten') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body, p{margin:0;padding:0}
+.wrapper-10_0{width:640px;height:480px;overflow:hidden;margin:0;padding:0;}
+.wrapper-10_0 > .background{width:640px;height:480px;overflow:hidden;position:fixed;}
+img{.opacity(0); .transition(opacity, 0.5s, linear);}
+.background{z-index:0}
+.content-wrapper-data{z-index:1;position:relative;}
+.loader .bar{width:0; height:5px; background:@secondary-color; .transition(width, 0.2s, linear); .transition(opacity, 1s, linear);position:fixed;top:475px;}
+.title-wrapper{font-family:haetten; color:@secondary-color;margin-top: 85px;overflow:hidden;height:55px;}
+.title-wrapper .nowrap{position: absolute;}
+.title-wrapper p{white-space:nowrap;text-align:center}
+.flag-wrapper{position:fixed;top:0; left:500px; .transition(top, 0.2s, linear);}
+.flag-border, .flag-front, .flag-message{position:absolute;top:0;left:0}
+.navigation-bar{width:640px; background:@bar; position:fixed; top:140px;z-index:10;}
+.navigation-bar .viewport{height:285px;  overflow: hidden; position: relative; width:640px;}
+.navigation-bar .overflowed-navigation{height:285px; position: absolute; left: 0; top: 0; padding: 0; margin: 0;width:0px;}
+.navigation-bar ul{margin:5px 0; padding:0; height:275px}
+.navigation-bar ul li{margin:0; padding:0; list-style:none;float:left;width:128px;cursor:pointer;position:relative;left:-1500px;
+-webkit-transition: left 1s cubic-bezier(0.000, 1, 1.000, 1); /* older webkit */
+-webkit-transition: left 1s cubic-bezier(0.000, 1.055, 1.000, 1.650); 
+   -moz-transition: left 1s cubic-bezier(0.000, 1.055, 1.000, 1.650); 
+     -o-transition: left 1s cubic-bezier(0.000, 1.055, 1.000, 1.650); 
+        transition: left 1s cubic-bezier(0.000, 1.055, 1.000, 1.650); /* custom */
+}
+.list-transparency{width: 128px;height: 274px;background: #333;opacity: 0.7;position: absolute;top: 0px;}
+.content-wrapper{width: 128px;height: 274px;position: absolute;top: 5px;color: #fff;font-family: avg;text-align: center;}
+.option-text{font-weight:normal;height: 130px;text-align: center;width: 128px;margin-bottom:7px;}
+.option-text p{position:absolute; bottom:140px;width:100%;font-family:'avg46'}
+.option-votes{height: 130px;text-align: center;width: 128px;font-family:'avg46'}
+.separator{position: absolute;width: 40px;height: 5px;border-bottom: 1px solid #fff;top: 129px;left: 43px;}
+.scrollbar{ background: #ccc; position: absolute; background-position: 0 0; float: right; width: 15px; z-index:11; height:5px;top: 285px;}
+.track { background: #ccc; height: 100%; width:13px; position: relative; padding: 0 1px; }
+.thumb { background: #333; height: 20px; width: 25px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: -5px;height:5px; }
+.thumb .end { background: #333; overflow: hidden; height: 5px; width: 25px; }
+
+.interaction-helper{position:fixed;top:440px;left:545px; .transition(opacity, 0.2s, linear);}
+.flag-back-rectangle{width:90px;height:90px;background:@secondary-color;z-index:999}
+.flag-back-arrow{width: 0;height: 0;border-style: solid;border-width: 22px 45px 0 45px;border-color: @secondary-color transparent transparent transparent;}
+.flag-border{left:5px;}
+.flag-border-rectangle{width:80px;height:85px;background:@main-blue;z-index:999}
+.flag-border-arrow{width: 0;height: 0;border-style: solid;border-width: 19px 40px 0 40px;border-color: @main-blue transparent transparent transparent;}
+.flag-front{left:6px;}
+.flag-front-rectangle{width:78px;height:84px;background:@secondary-color;z-index:999}
+.flag-front-arrow{width: 0;height: 0;border-style: solid;border-width: 18px 39px 0 39px;border-color: @secondary-color transparent transparent transparent;}
+.flag-message{font-family:avg;color:@main-blue;width:78px;height:84px;left:6px;text-align:center;}
